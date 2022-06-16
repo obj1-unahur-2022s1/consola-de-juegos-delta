@@ -1,0 +1,10 @@
+import wollok.game.*
+import frogger.* 
+
+program frogger {
+
+	juego.configurar()
+	juego.iniciar()
+	game.start()
+
+}
