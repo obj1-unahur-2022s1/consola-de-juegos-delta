@@ -8,7 +8,7 @@ class Meta {
 	
 	method position() = position
 	
-	method image() = "meta.png"
+	method image() = "meta2.png"
 	
 	//method posicionInicial() = game.at(0, game.height()-2)	
 	method posicionInicial() = position
@@ -24,7 +24,7 @@ class Meta {
 	
 	method chocar(){
 		game.say(self,"¡Llegaste a la Meta!")
-		puntos.puntosAlLlegarAMeta()
+		puntos.puntos() + puntos.puntosAlLlegarAMeta()
 		rana.position( game.at(game.width()/2,0) )
 	}
 
