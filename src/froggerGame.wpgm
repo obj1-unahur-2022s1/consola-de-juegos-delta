@@ -2,9 +2,20 @@ import wollok.game.*
 import frogger.* 
 
 program frogger {
-
+	game.title("Frogger Game")
+	game.width(20)
+	game.height(15)
+	
+	
+	
 	juego.configurar()
 	juego.iniciar()
+	/* 
+	musica.shouldLoop(true)
+	musica.volume(0.5)
+	game.schedule(500, {musica.play()})
+	*/
+	
 	game.start()
 
 }

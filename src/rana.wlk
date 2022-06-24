@@ -1,5 +1,6 @@
 import wollok.game.*
 import movimientos.*
+import utilidades.*
 
 object rana {
 	var vivo = true
@@ -19,6 +20,18 @@ object rana {
 		return pasos
 	} */
 	
+	// Mueve en la direccion indicada
+	
+	method moverDireccion_(dir){
+		self.direccion(dir)	
+		self.avanzar()
+		puntos.puntajePorPaso()
+		const salto = game.sound("audio/swing-whoosh.mp3")
+		salto.volume(0.1)
+		salto.play()
+	}
+	
+	/* 
 	method moverDerecha() {
 		self.direccion(derecha)	
 		self.avanzar()
@@ -27,7 +40,7 @@ object rana {
 
 	method moverIzquierda() {
 		self.direccion(izquierda)
-		self.avanzar()	
+		self.avanzar()
 	}
 
 	method moverArriba() {
@@ -39,6 +52,7 @@ object rana {
 		self.direccion(abajo)
 		self.avanzar()
 	}
+	*/
 	
 	method avanzar() {
 			position = direccion.proximaPosicion(self.position())

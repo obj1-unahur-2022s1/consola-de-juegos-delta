@@ -4,20 +4,19 @@ import movimientos.*
 import utilidades.*
 import obstaculos.*
 
+const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
+
 object juego{
 	
-	
-	
-
 	method configurar(){
-		
-		
-		game.width(20)
-		game.height(15)
+		//game.width(20)
+		//game.height(15)
 		//game.width(15)
 		//game.height(10)
-		game.title("Frogger Game")
+		//game.title("Frogger Game")
+			
 		game.boardGround("fondo.png")
+		 
 		game.addVisual(rana)
 		 
 		
@@ -49,6 +48,7 @@ object juego{
 		game.addVisual(puntos)
 		game.addVisual(reloj)
 		
+		
 		/* 
 		keyboard.space().onPressDo{ self.jugar()}
 		keyboard.up().onPressDo{ rana.subir()}
@@ -58,21 +58,21 @@ object juego{
 		
 		*/
 		keyboard.space().onPressDo{ self.jugar()}
-		keyboard.up().onPressDo{ rana.moverArriba()}
-		keyboard.down().onPressDo{ rana.moverAbajo()}
-		keyboard.right().onPressDo{ rana.moverDerecha()}
-		keyboard.left().onPressDo{ rana.moverIzquierda()}
+		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
+		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
+		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}
+		keyboard.left().onPressDo{ rana.moverDireccion_(izquierda)}
 		
 		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 		
 	} 
 	
 	method iniciar(){
+	
+		
 		rana.iniciar()
 		reloj.iniciar()
 		
-		
-	
 		auto1.iniciar()
 		auto2.iniciar()
 		auto3.iniciar()
@@ -92,7 +92,6 @@ object juego{
 		
 	}
 	
-		
 	method jugar(){
 		if (rana.estaVivo()) 
 			rana.iniciar()
@@ -100,7 +99,9 @@ object juego{
 			game.removeVisual(gameOver)
 			self.iniciar()
 		}
+		
 	}
+	
 	method terminar(){
 		game.addVisual(gameOver)
 		
@@ -122,7 +123,9 @@ object juego{
 		
 		reloj.detener()
 		rana.morir()
-		game.say(rana,"¡Presiona SPACE para renaudar!")
+		puntos.restablecer()
+		
+		game.say(rana,"¡Presiona SPACE para reanudar!")
 	}
 
 }
@@ -131,8 +134,8 @@ object gameOver {
 	method position() = game.center()
 	method text() = "GAME OVER"
 	
-
 }
+
 /* 
 object reloj {
 	
