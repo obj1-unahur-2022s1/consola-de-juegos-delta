@@ -27,7 +27,7 @@ object rana {
 		self.avanzar()
 		puntos.puntajePorPaso()
 		const salto = game.sound("audio/swing-whoosh.mp3")
-		salto.volume(0.1)
+		salto.volume(0.3)
 		salto.play()
 	}
 	
@@ -62,7 +62,7 @@ object rana {
 	method morir(){
 		game.say(self,"¡Auch!")
 		vivo = false
-		//position = game.at(,0)
+		//position = game.at(10,0)
 	}
 	method iniciar() {
 		vivo = true

@@ -74,6 +74,7 @@ const meta4 = new Meta(position = game.at(game.width()-6, game.height()-2), imag
 const meta5 = new Meta(position = game.at(game.width()-10.1, game.height()-2), imagen = "meta2.png")
 
 
+
 //Autos
 
 const auto1= new Auto(position= game.at(game.width()-1,1), imagen= "auto1.png", velocidad= 300,direccion = izquierda)
@@ -88,10 +89,10 @@ const tronco1= new Auto(position= game.at(game.height()-1,9), imagen = "tronco1.
 const tronco2= new Auto(position= game.at(game.height()-1,11), imagen = "tronco2.png", velocidad= 320, direccion = izquierda)
 
 const otrasRanas1= new Auto(position= game.at(game.height()-1,10), imagen = "otrasRanas.png", velocidad= 290, direccion = izquierda)
-const otrasRanas2= new Auto(position= game.at(game.height()-1,8), imagen = "otrasRanas2.png", velocidad= 280, direccion = derecha)
+const otrasRanas2= new Auto(position= game.at(game.height()-1,8), imagen = "otrasRanas2.png", velocidad= 250, direccion = derecha)
 
-const otrasRanas3= new Auto(position= game.at(game.height()-1,12), imagen = "otrasRanas.png", velocidad= 340, direccion = izquierda)
-const otrasRanas4= new Auto(position= game.at(game.height()-1,7), imagen = "otrasRanas2.png", velocidad= 310, direccion = derecha)
+const otrasRanas3= new Auto(position= game.at(game.height()-1,12), imagen = "otrasRanas.png", velocidad= 340, direccion = derecha)
+const otrasRanas4= new Auto(position= game.at(game.height()-1,7), imagen = "otrasRanas2.png", velocidad= 200, direccion = izquierda)
 
 
 //Texto

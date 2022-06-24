@@ -4,17 +4,11 @@ import movimientos.*
 import utilidades.*
 import obstaculos.*
 
-const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
+//const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
 
 object juego{
 	
 	method configurar(){
-		//game.width(20)
-		//game.height(15)
-		//game.width(15)
-		//game.height(10)
-		//game.title("Frogger Game")
-			
 		game.boardGround("fondo.png")
 		 
 		game.addVisual(rana)
@@ -43,10 +37,11 @@ object juego{
 		game.addVisual(meta5)
 		
 		
+		
 		game.addVisual(textTiempo)
 		game.addVisual(textPuntos)
 		game.addVisual(puntos)
-		game.addVisual(reloj)
+		//game.addVisual(reloj)
 		
 		
 		/* 
@@ -71,7 +66,7 @@ object juego{
 	
 		
 		rana.iniciar()
-		reloj.iniciar()
+		//reloj.iniciar()
 		
 		auto1.iniciar()
 		auto2.iniciar()
@@ -121,9 +116,10 @@ object juego{
 		otrasRanas3.detener()
 		otrasRanas4.detener()
 		
-		reloj.detener()
+		//reloj.detener()
 		rana.morir()
 		puntos.restablecer()
+		
 		
 		game.say(rana,"¡Presiona SPACE para reanudar!")
 	}
@@ -156,54 +152,3 @@ object reloj {
 	}
 }
 */
-
-
-/*
-object suelo{
-	
-	method position() = game.origin().up(3)
-	
-	method image() = "suelo.png"
-}
-
-
-*/
-
-/* 
-object rana {
-	var vivo = true
-
-	var position = game.at(9,0)
-	
-	method image() = "rana.png"
-	method position() = position
-	
-
-	method subir(){
-		position = position.up(1)
-	}
-	
-	method bajar(){
-		position = position.down(1)
-	}
-	
-	method izquierda(){
-		position = position.left(1)
-	}
-	
-	method derecha(){
-		position = position.right(1)
-	}
-
-	
-	method morir(){
-		game.say(self,"¡Auch!")
-		vivo = false
-	}
-	method iniciar() {
-		vivo = true
-	}
-	method estaVivo() {
-		return vivo
-	}
-} */
