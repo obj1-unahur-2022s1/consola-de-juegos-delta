@@ -6,15 +6,32 @@ import obstaculos.*
 import nivel.*
 
 //const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
+object pantallaInicio {
+	const fondoEmpezar = new Fondo(image = "fondo_inicio1.png")
+	
+	method configurar() {
+		
+		game.addVisual(fondoEmpezar)
+		keyboard.x().onPressDo({ if (game.hasVisual(fondoEmpezar)) {
+				//game.addVisual(fondoEmpezar)
+				game.schedule(2000, { juego.configurar()})
+			}
+		})
+		keyboard.z().onPressDo({ game.addVisual(fondoEmpezar)
+			game.schedule(2000, { game.stop()})
+		})
+		
+	}
+}
+
 
 object juego{
 	
 	method configurar(){
 		
-		
-		controles.configurar()
 		nivel.agregarVisuales()
 		nivel.iniciar()
+		self.configurarControles()
 		self.colision()
 		//game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 		
@@ -24,6 +41,13 @@ object juego{
 		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 	}
 	
+	method configurarControles(){
+		//keyboard.space().onPressDo{ nivel.jugar()}
+		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
+		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
+		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}
+		keyboard.left().onPressDo{ rana.moverDireccion_(izquierda)}
+	}
 	/* 
 	method iniciar(){
 	

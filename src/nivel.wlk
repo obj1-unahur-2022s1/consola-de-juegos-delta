@@ -74,7 +74,7 @@ object nivel {
 	method terminar(){
 		//game.clear()
 		//game.addVisual(new Fondo(image= "fondo_negro.jpg"))
-		game.addVisual(gameOver)
+		//game.addVisual(gameOver)
 		
 		auto1.detener()
 		auto2.detener()
@@ -91,10 +91,22 @@ object nivel {
 		otrasRanas3.detener()
 		otrasRanas4.detener()
 		
-		//reloj.detener()
+		reloj.detener()
 		rana.morir()
 		puntos.restablecer()
-		
 		//game.say(rana,"¡Presiona SPACE para reanudar!")
+		
+		// game.clear() limpia visuals, teclado, colisiones y acciones
+		game.schedule(1500, {
+			game.clear()
+			// Fondo Game Over
+			game.addVisual(new Fondo(image = "gameover.png"))
+			game.schedule(4000, { // Volver al inicio 
+				pantallaInicio.configurar()})
+			})
+			// después de un ratito ...
+		
 	}
+	
+	
 }

@@ -4,15 +4,6 @@ import rana.*
 import obstaculos.*
 import nivel.*
 
-object controles{
-	method configurar(){
-		keyboard.space().onPressDo{ nivel.jugar()}
-		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
-		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
-		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}
-		keyboard.left().onPressDo{ rana.moverDireccion_(izquierda)}
-	}
-}	
 
 object gameOver {
 	method position() = game.center()
