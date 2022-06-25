@@ -28,21 +28,24 @@ object pantallaInicio {
 object juego{
 	
 	method configurar(){
-		
+		//Se hace un game clear primero para que el usuario no pueda presionar Z o X
+		game.clear()
 		nivel.agregarVisuales()
 		nivel.iniciar()
 		self.configurarControles()
-		self.colision()
+		self.configurarColision()
+		//keyboard.x().onPressDo({ }) // ??
+		//keyboard.z().onPressDo({ }) // ??
 		//game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 		
 	} 
 	
-	method colision(){
+	method configurarColision(){
 		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 	}
 	
 	method configurarControles(){
-		//keyboard.space().onPressDo{ nivel.jugar()}
+
 		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
 		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
 		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}

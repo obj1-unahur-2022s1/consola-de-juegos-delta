@@ -1,15 +1,16 @@
 import wollok.game.*
 import movimientos.*
-import rana.*
 import obstaculos.*
-import nivel.*
 
 
+/* 
 object gameOver {
 	method position() = game.center()
 	method text() = "GAME OVER"
 	
 }
+
+*/
 
 object puntos {
 	// Puntos

@@ -1,5 +1,4 @@
 import wollok.game.*
-//import suelo.*
 
 class Direccion {
 

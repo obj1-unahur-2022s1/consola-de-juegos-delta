@@ -4,14 +4,20 @@ import rana.*
 import frogger.*
 
 object nivel {
+	const obstaculosMoviles = [auto1,auto2,auto3,camion1,camion2,tronco1,tronco2,otrasRanas1,otrasRanas2,otrasRanas3,otrasRanas4]
+	const metas = [meta1, meta2,meta3,meta4,meta5]
 	
+
 	method agregarVisuales(){
-		//game.boardGround("fondo.png")
-	 	
-	 	game.addVisual(new Fondo())
-		
+	 	game.addVisual(new Fondo())	
+		self.agregarVisualesObstaculosMoviles()
+		self.agregarVisualesMeta()
 		game.addVisual(rana)
-		 
+		game.addVisual(textTiempo)
+		game.addVisual(textPuntos)
+		game.addVisual(puntos)
+		game.addVisual(reloj)
+		/*  
 		game.addVisual(auto1)
 		game.addVisual(auto2)
 		game.addVisual(auto3)
@@ -37,11 +43,26 @@ object nivel {
 		game.addVisual(textTiempo)
 		game.addVisual(textPuntos)
 		game.addVisual(puntos)
-		game.addVisual(reloj)	
+		game.addVisual(reloj)		
+		*/
+	}
+	method agregarVisualesObstaculosMoviles(){
+		obstaculosMoviles.forEach({
+			obstaculo => game.addVisual(obstaculo)
+		})
+	}
+	method agregarVisualesMeta(){
+		metas.forEach({
+			obstaculo => game.addVisual(obstaculo)
+		})
 	}
 	
 	method iniciar(){
-	
+		self.iniciarObstaculosMoviles()
+		rana.iniciar()
+		reloj.iniciar()
+		
+		/* 
 		rana.iniciar()
 		reloj.iniciar()
 		
@@ -59,23 +80,24 @@ object nivel {
 		otrasRanas2.iniciar()
 		otrasRanas3.iniciar()
 		otrasRanas4.iniciar()
-	}
-	
-	method jugar(){
-		if (rana.estaVivo()) 
-			rana.iniciar()
-		else {
-			game.removeVisual(gameOver)
-			self.iniciar()
-		}
+		
+		*/
 		
 	}
+	method iniciarObstaculosMoviles(){
+		obstaculosMoviles.forEach({
+			obstaculo => obstaculo.iniciar()
+		})
+	}
+	method detenerObstaculosMoviles(){
+		obstaculosMoviles.forEach({
+			obstaculo => obstaculo.detener()
+		})
+	}
 	
-	method terminar(){
-		//game.clear()
-		//game.addVisual(new Fondo(image= "fondo_negro.jpg"))
-		//game.addVisual(gameOver)
-		
+	
+	method terminar(){	
+		/* 
 		auto1.detener()
 		auto2.detener()
 		auto3.detener()
@@ -90,11 +112,11 @@ object nivel {
 		otrasRanas2.detener()
 		otrasRanas3.detener()
 		otrasRanas4.detener()
-		
+		*/
+		self.detenerObstaculosMoviles()
 		reloj.detener()
 		rana.morir()
-		puntos.restablecer()
-		//game.say(rana,"¡Presiona SPACE para reanudar!")
+		//puntos.restablecer()
 		
 		// game.clear() limpia visuals, teclado, colisiones y acciones
 		game.schedule(1500, {
@@ -104,7 +126,7 @@ object nivel {
 			game.schedule(4000, { // Volver al inicio 
 				pantallaInicio.configurar()})
 			})
-			// después de un ratito ...
+
 		
 	}
 	
