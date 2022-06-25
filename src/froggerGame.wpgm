@@ -1,5 +1,6 @@
 import wollok.game.*
 import frogger.* 
+import nivel.*
 
 program frogger {
 	game.title("Frogger Game")
@@ -9,7 +10,7 @@ program frogger {
 	
 	
 	juego.configurar()
-	juego.iniciar()
+	//juego.iniciar()
 	
 	var musica = game.sound("remember-the-80s.mp3")
 	musica.shouldLoop(true)

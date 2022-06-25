@@ -2,6 +2,8 @@ import wollok.game.*
 import frogger.*
 import utilidades.*
 import rana.*
+import nivel.*
+
 
 class Obstaculo {
 	
@@ -15,6 +17,7 @@ class Obstaculo {
 
 	method iniciar(){
 		position = self.posicionInicial()
+		//game.addVisual(self)
 	}
 	
 }
@@ -57,7 +60,7 @@ class Auto inherits Obstaculo {
 	}
 	
 	method chocar(){
-		juego.terminar()
+		nivel.terminar()
 		
 	}
 }

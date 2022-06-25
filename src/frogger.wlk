@@ -3,68 +3,30 @@ import rana.*
 import movimientos.*
 import utilidades.*
 import obstaculos.*
+import nivel.*
 
 //const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
 
 object juego{
 	
 	method configurar(){
-		game.boardGround("fondo.png")
-		 
-		game.addVisual(rana)
-		 
-		
-		game.addVisual(auto1)
-		game.addVisual(auto2)
-		game.addVisual(auto3)
-		
-		game.addVisual(camion1)
-		game.addVisual(camion2)
-		
-		game.addVisual(tronco1)
-		game.addVisual(tronco2)
 		
 		
-		game.addVisual(otrasRanas1)
-		game.addVisual(otrasRanas2)
-		game.addVisual(otrasRanas3)
-		game.addVisual(otrasRanas4)
-		
-		game.addVisual(meta1)
-		game.addVisual(meta2)
-		game.addVisual(meta3)
-		game.addVisual(meta4)
-		game.addVisual(meta5)
-		
-		
-		
-		game.addVisual(textTiempo)
-		game.addVisual(textPuntos)
-		game.addVisual(puntos)
-		//game.addVisual(reloj)
-		
-		
-		/* 
-		keyboard.space().onPressDo{ self.jugar()}
-		keyboard.up().onPressDo{ rana.subir()}
-		keyboard.down().onPressDo{ rana.bajar()}
-		keyboard.right().onPressDo{ rana.derecha()}
-		keyboard.left().onPressDo{ rana.izquierda()}
-		
-		*/
-		keyboard.space().onPressDo{ self.jugar()}
-		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
-		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
-		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}
-		keyboard.left().onPressDo{ rana.moverDireccion_(izquierda)}
-		
-		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
+		controles.configurar()
+		nivel.agregarVisuales()
+		nivel.iniciar()
+		self.colision()
+		//game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 		
 	} 
 	
+	method colision(){
+		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
+	}
+	
+	/* 
 	method iniciar(){
 	
-		
 		rana.iniciar()
 		//reloj.iniciar()
 		
@@ -82,9 +44,7 @@ object juego{
 		otrasRanas2.iniciar()
 		otrasRanas3.iniciar()
 		otrasRanas4.iniciar()
-		
-
-		
+	
 	}
 	
 	method jugar(){
@@ -100,7 +60,6 @@ object juego{
 	method terminar(){
 		game.addVisual(gameOver)
 		
-	
 		auto1.detener()
 		auto2.detener()
 		auto3.detener()
@@ -120,18 +79,25 @@ object juego{
 		rana.morir()
 		puntos.restablecer()
 		
-		
 		game.say(rana,"¡Presiona SPACE para reanudar!")
 	}
-
+	*/
 }
-	
+/* 
+object controles{
+	method configurar(){
+		keyboard.space().onPressDo{ nivel.jugar()}
+		keyboard.up().onPressDo{ rana.moverDireccion_(arriba)}
+		keyboard.down().onPressDo{ rana.moverDireccion_(abajo)}
+		keyboard.right().onPressDo{ rana.moverDireccion_(derecha)}
+		keyboard.left().onPressDo{ rana.moverDireccion_(izquierda)}
+	}
+}	
 object gameOver {
 	method position() = game.center()
 	method text() = "GAME OVER"
 	
-}
-
+}*/
 /* 
 object reloj {
 	
