@@ -1,5 +1,5 @@
 import wollok.game.*
-import frogger.* 
+import config.* 
 import nivel.*
 
 program frogger {
@@ -8,10 +8,11 @@ program frogger {
 	game.height(15)
 	
 	
-	pantallaInicio.configurar()
+	pantallaInicio.iniciar()
 	//juego.configurar()
 	//juego.iniciar()
 	
+	/* 
 	var musica = game.sound("remember-the-80s.mp3")
 	musica.shouldLoop(true)
 	musica.volume(0.1)
@@ -19,6 +20,7 @@ program frogger {
 	
 	keyboard.p().onPressDo({musica.pause()})
 	keyboard.o().onPressDo({musica.resume()})
+	*/
 	
 	game.start()
 	

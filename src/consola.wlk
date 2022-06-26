@@ -1,10 +1,11 @@
 import wollok.game.* 
 import juego.*
+import config.*
 
 object consola {
 
 	const juegos = [
-		new Juego(color = "Amarillo"),
+		juegoFrogger,
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
 		new Juego(color = "Azul"),
@@ -14,8 +15,8 @@ object consola {
 	var menu 
 	
 	method initialize(){
-		game.height(12)
-		game.width(17)
+		game.width(20)
+		game.height(15)
 		game.title("Consola de juegos")
 	}
 	

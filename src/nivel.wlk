@@ -1,7 +1,7 @@
 import wollok.game.*
 import utilidades.*
 import rana.*
-import frogger.*
+import config.*
 
 object nivel {
 	const obstaculosMoviles = [auto1,auto2,auto3,camion1,camion2,tronco1,tronco2,otrasRanas1,otrasRanas2,otrasRanas3,otrasRanas4]
@@ -116,15 +116,19 @@ object nivel {
 		self.detenerObstaculosMoviles()
 		reloj.detener()
 		rana.morir()
-		//puntos.restablecer()
+		puntos.restablecer()
 		
 		// game.clear() limpia visuals, teclado, colisiones y acciones
 		game.schedule(1500, {
 			game.clear()
+			//configuracion.detenerMusica()
 			// Fondo Game Over
+			configuracion.pausarMusicaBajandoVolumen()
 			game.addVisual(new Fondo(image = "gameover.png"))
+			
 			game.schedule(4000, { // Volver al inicio 
-				pantallaInicio.configurar()})
+				//configuracion.detenerMusicaBajandoVolumen()
+				pantallaInicio.iniciar()})
 			})
 
 		

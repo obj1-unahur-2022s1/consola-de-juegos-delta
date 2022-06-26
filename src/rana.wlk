@@ -26,11 +26,14 @@ object rana {
 		self.direccion(dir)	
 		self.avanzar()
 		puntos.puntajePorPaso()
-		const salto = game.sound("audio/swing-whoosh.mp3")
+		self.sonidoPorPaso()
+	}
+	
+	method sonidoPorPaso(){
+		const salto = game.sound("audio/sonidoSalto.wav")
 		salto.volume(0.3)
 		salto.play()
 	}
-	
 	/* 
 	method moverDerecha() {
 		self.direccion(derecha)	

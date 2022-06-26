@@ -1,5 +1,5 @@
 import wollok.game.*
-import frogger.*
+import config.*
 import utilidades.*
 import rana.*
 import nivel.*

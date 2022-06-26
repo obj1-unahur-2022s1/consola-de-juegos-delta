@@ -6,15 +6,15 @@ import obstaculos.*
 import nivel.*
 
 //const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
+
 object pantallaInicio {
 	const fondoEmpezar = new Fondo(image = "fondo_inicio1.png")
+	method iniciar() {
 	
-	method configurar() {
-		
 		game.addVisual(fondoEmpezar)
 		keyboard.x().onPressDo({ if (game.hasVisual(fondoEmpezar)) {
 				//game.addVisual(fondoEmpezar)
-				game.schedule(2000, { juego.configurar()})
+				game.schedule(2000, { configuracion.iniciar()})
 			}
 		})
 		keyboard.z().onPressDo({ game.addVisual(fondoEmpezar)
@@ -22,24 +22,53 @@ object pantallaInicio {
 		})
 		
 	}
+
 }
 
 
-object juego{
+object configuracion{
+	const musica = game.sound("frogger.mp3")
 	
-	method configurar(){
-		//Se hace un game clear primero para que el usuario no pueda presionar Z o X
-		game.clear()
+	method iniciar(){
+		
+		game.clear() //Se hace un game clear primero para que el usuario no pueda presionar Z o X
+		
 		nivel.agregarVisuales()
 		nivel.iniciar()
-		self.configurarControles()
+		self.configurarMusica()
 		self.configurarColision()
-		//keyboard.x().onPressDo({ }) // ??
-		//keyboard.z().onPressDo({ }) // ??
-		//game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
+		self.configurarControles()
 		
 	} 
 	
+	method configurarMusica(){
+		//const musica = game.sound("remember-the-80s.mp3")
+		musica.shouldLoop(true)
+		musica.volume(0.1)
+		
+		if (musica.paused()){
+			musica.volume(0.1)
+			musica.resume()
+		}else {
+			musica.play()
+		}
+		
+		keyboard.p().onPressDo({musica.pause()})
+		keyboard.o().onPressDo({musica.resume()})
+	}
+	method pausarMusicaBajandoVolumen(){
+		game.schedule(100, {
+			musica.volume(0.080)
+			game.schedule(500, {
+				musica.volume(0.050)
+				game.schedule(800, {
+					musica.volume(0.020)
+					game.schedule(1000, {musica.pause()})
+				})
+			})
+		})
+		
+	}
 	method configurarColision(){
 		game.onCollideDo(rana,{ obstaculo => obstaculo.chocar()})
 	}
