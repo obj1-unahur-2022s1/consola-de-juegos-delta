@@ -26,7 +26,7 @@ object juegoFrogger {
 	var property position
 	
 	method iniciar(){
-       game.schedule(2000,{menu.iniciar() })	
+       game.schedule(1000,{menu.iniciar() })	
 	}
 	method terminar(){
 		

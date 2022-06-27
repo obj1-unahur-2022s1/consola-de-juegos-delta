@@ -32,13 +32,14 @@ class Meta inherits Obstaculo {
 	method chocar(){
 		puntos.puntosAlLlegarAMeta()
 		game.say(self,"¡Llegaste a la Meta!")
-		rana.position( game.at(game.width()/2,0) )
+		rana.position(posicion.posicionArbitrariaWidth())
+		
 	}
-
+	
 }
 
 
-class Auto inherits Obstaculo {
+class ObstaculoMovil inherits Obstaculo {
 	var velocidad
 	var property direccion
 	

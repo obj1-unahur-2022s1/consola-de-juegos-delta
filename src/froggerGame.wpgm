@@ -1,6 +1,7 @@
 import wollok.game.*
 import config.* 
 import nivel.*
+import menu.*
 
 program frogger {
 	game.title("Frogger Game")
@@ -8,7 +9,7 @@ program frogger {
 	game.height(15)
 	
 	
-	pantallaInicio.iniciar()
+	menu.iniciar()
 	//juego.configurar()
 	//juego.iniciar()
 	

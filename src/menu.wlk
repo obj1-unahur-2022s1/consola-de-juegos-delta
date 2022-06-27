@@ -66,8 +66,11 @@ object play inherits Opcion(
     ) {
 
     method iniciar(){
-        game.clear()
-       	configuracion.iniciar()
+        game.schedule(100,
+		{
+			game.clear()
+			configuracion.iniciar()
+		})
     }
     
 }
@@ -80,8 +83,11 @@ object salir inherits Opcion(
     ) {
 
     method iniciar(){
-       	game.clear()
-       	consola.iniciar()
+       	game.schedule(100,
+		{
+			game.clear()
+			consola.iniciar()
+		})
     }
     
     
