@@ -23,3 +23,4 @@ a un lugar seguro. La parte superior de la pantalla contiene cinco "hogares de r
 
 Cada paso hacia adelante puntúa 10 puntos, y cada rana que llega sana y salva a casa puntúa 300 puntos.
 
+![vista del juego](https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2022/05/20/3ACBF9E3-FB75-4648-9132-966093BE0E06/jugar-frogger-minecraft-posible-gracias-popular-youtuber_98.jpg?crop=1280,720,x0,y0&width=1900&height=1069&optimize=high&format=webply)
