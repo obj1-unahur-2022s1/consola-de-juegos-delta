@@ -27,13 +27,13 @@ class Fondo {
 
 object puntos {
 	
-	var listaPuntos = [0]
+	//var listaPuntos = [0]
 	
 	var property puntaje = 0
 	
 	method text() = puntaje.toString()
 	
-	method position() = game.at(1 , game.height()-1)
+	method position() = game.at(2 , game.height()-1)
 	
 	method puntosAlLlegarAMeta(){	
 		puntaje += 300
@@ -45,11 +45,29 @@ object puntos {
 	method restablecer(){
 		puntaje = 0
 	}
+	method iniciar(){
+		game.addVisual(self)
+	}
+}
+
+object puntosMax{
+	
+	var listaPuntos = [0]
+		
+	var property puntaje = 0
+	
+	method text() = self.maxPuntaje().toString()
+	
+	method position() = game.at(5, game.height()-1)
+	
 	method maxPuntaje(){
 		return listaPuntos.max()
 	}
 	method agregarPuntaje(unPuntaje){
 		listaPuntos.add(unPuntaje)
+	}
+	method iniciar(){
+		game.addVisual(self)
 	}
 }
 
@@ -116,8 +134,8 @@ const tortuga4= new ObstaculoMovil(position= game.at(5,8), imagen = "tortuga2.pn
 //Texto
 
 const textTiempo = new Texto(texto = "TIME: ", position = game.at(game.width()-2, game.height()-1))
-const textPuntos = new Texto(texto = "SCORE: ", position = game.at(0 , game.height()-1))
-const textMaxPuntaje = new Texto(texto = "HI-SCORE: ", position = game.at(3 , game.height()-1))
+const textPuntos = new Texto(texto = "SCORE: ", position = game.at(1 , game.height()-1))
+const textMaxPuntaje = new Texto(texto = "HI-SCORE: ", position = game.at(4 , game.height()-1))
 //const textMaxPuntajeActual = new Texto(texto = puntos.maxPuntaje().toString(), position = game.at(4 , game.height()-1))
 
 

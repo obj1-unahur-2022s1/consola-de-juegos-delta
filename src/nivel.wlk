@@ -20,34 +20,19 @@ object nivel {
 	
 	method agregarVisuales(){
 	 	game.addVisual(fondojuego)	
-		//self.agregarVisualesObstaculosMoviles()
-		//self.agregarVisualesMeta()
 		game.addVisual(textMaxPuntaje)
 		game.addVisual(textPuntos)
-		game.addVisual(puntos)
-		//game.addVisual(textMaxPuntajeActual)
-		//game.addVisual(reloj)
 		game.addVisual(textTiempo)
 	}
 	
-	/* 
-	method agregarVisualesObstaculosMoviles(){
-		obstaculosMoviles.forEach({
-			obstaculo => game.addVisual(obstaculo)
-		})
-	}
-	method agregarVisualesMeta(){
-		metas.forEach({
-			obstaculo => game.addVisual(obstaculo)
-		})
-	}
-	*/
+
 	method iniciar(){
-		//game.addVisual(fondojuego)
 		self.iniciarObstaculosMoviles()
 		self.iniciarMetas()	
 		rana.iniciar()
-		reloj.iniciar()	
+		reloj.iniciar()
+		puntos.iniciar()
+		puntosMax.iniciar()	
 	}
 	
 	method iniciarObstaculosMoviles(){
@@ -71,32 +56,13 @@ object nivel {
 		self.detenerObstaculosMoviles()
 		reloj.detener()
 		rana.morir()
+		puntosMax.agregarPuntaje(puntos.puntaje())
 		self.mostrarPantallaGameOverYVolverAMenu()
-		//puntos.agregarPuntaje(puntos.puntaje())
-		//puntos.maxPuntaje()
-		//puntos.restablecer()
-		
-		/* 
-		game.schedule(1500, {
-			game.clear()
-			
-			//configuracion.detenerMusica()
-			configuracion.pausarMusicaBajandoVolumen()
-			
-			game.addVisual(new Fondo(image = "gameover.png"))  //Fondo Game Over
-			game.schedule(4000, { // Volver al inicio 
-				//configuracion.detenerMusicaBajandoVolumen()
-				game.clear()
-				menu.iniciar()})
-			})
-	
-		*/
 		
 	}
 	method mostrarPantallaGameOverYVolverAMenu(){
 		game.schedule(1500, {
 			game.clear()
-			
 			//configuracion.detenerMusica()
 			configuracion.pausarMusicaBajandoVolumen()
 			

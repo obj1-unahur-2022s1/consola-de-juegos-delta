@@ -5,38 +5,14 @@ import utilidades.*
 import obstaculos.*
 import nivel.*
 
-//const musica = game.sound("/ConsolaDeJuegos/assets/audio/remember-the-80s.mp3")
-
-/* 
-object pantallaInicio {
-	const fondoEmpezar = new Fondo(image = "fondo_inicio1.png")
-	method iniciar() {
-	
-		game.addVisual(fondoEmpezar)
-		keyboard.x().onPressDo({ if (game.hasVisual(fondoEmpezar)) {
-				//game.addVisual(fondoEmpezar)
-				game.schedule(2000, { configuracion.iniciar()})
-			}
-		})
-		keyboard.z().onPressDo({ game.addVisual(fondoEmpezar)
-			game.schedule(2000, { game.stop()})
-		})
-		
-	}
-
-}
-*/
-
-
 object configuracion{
 	const musica = game.sound("frogger.mp3")
 	
 	method iniciar(){
 		
-		game.clear() //Se hace un game clear primero para que el usuario no pueda presionar Z o X
+		game.clear() 
 		rana.posicionInicial()
 		puntos.restablecer()
-		//puntos.maxPuntaje()
 		self.configurarControles()
 		nivel.agregarVisuales()
 		nivel.iniciar()
