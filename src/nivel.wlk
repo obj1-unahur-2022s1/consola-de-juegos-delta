@@ -20,15 +20,17 @@ object nivel {
 	
 	method agregarVisuales(){
 	 	game.addVisual(fondojuego)	
-		self.agregarVisualesObstaculosMoviles()
-		self.agregarVisualesMeta()
+		//self.agregarVisualesObstaculosMoviles()
+		//self.agregarVisualesMeta()
 		game.addVisual(textMaxPuntaje)
 		game.addVisual(textPuntos)
 		game.addVisual(puntos)
 		//game.addVisual(textMaxPuntajeActual)
-		game.addVisual(reloj)
+		//game.addVisual(reloj)
 		game.addVisual(textTiempo)
 	}
+	
+	/* 
 	method agregarVisualesObstaculosMoviles(){
 		obstaculosMoviles.forEach({
 			obstaculo => game.addVisual(obstaculo)
@@ -39,15 +41,22 @@ object nivel {
 			obstaculo => game.addVisual(obstaculo)
 		})
 	}
-	
+	*/
 	method iniciar(){
+		//game.addVisual(fondojuego)
 		self.iniciarObstaculosMoviles()
+		self.iniciarMetas()	
 		rana.iniciar()
-		reloj.iniciar()		
+		reloj.iniciar()	
 	}
 	
 	method iniciarObstaculosMoviles(){
 		obstaculosMoviles.forEach({
+			obstaculo => obstaculo.iniciar()
+		})
+	}
+	method iniciarMetas(){
+		metas.forEach({
 			obstaculo => obstaculo.iniciar()
 		})
 	}
@@ -62,16 +71,17 @@ object nivel {
 		self.detenerObstaculosMoviles()
 		reloj.detener()
 		rana.morir()
-		puntos.agregarPuntaje(puntos.puntaje())
-		puntos.maxPuntaje()
+		self.mostrarPantallaGameOverYVolverAMenu()
+		//puntos.agregarPuntaje(puntos.puntaje())
+		//puntos.maxPuntaje()
 		//puntos.restablecer()
+		
+		/* 
 		game.schedule(1500, {
 			game.clear()
 			
-			
 			//configuracion.detenerMusica()
 			configuracion.pausarMusicaBajandoVolumen()
-			
 			
 			game.addVisual(new Fondo(image = "gameover.png"))  //Fondo Game Over
 			game.schedule(4000, { // Volver al inicio 
@@ -79,9 +89,24 @@ object nivel {
 				game.clear()
 				menu.iniciar()})
 			})
-
+	
+		*/
 		
 	}
-	
+	method mostrarPantallaGameOverYVolverAMenu(){
+		game.schedule(1500, {
+			game.clear()
+			
+			//configuracion.detenerMusica()
+			configuracion.pausarMusicaBajandoVolumen()
+			
+			game.addVisual(new Fondo(image = "gameover.png"))  //Fondo Game Over
+			game.schedule(4000, { // Volver al inicio 
+				//configuracion.detenerMusicaBajandoVolumen()
+				game.clear()
+				menu.iniciar()})
+			})
+		
+	}
 	
 }

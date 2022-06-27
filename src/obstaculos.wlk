@@ -17,7 +17,7 @@ class Obstaculo {
 
 	method iniciar(){
 		position = self.posicionInicial()
-		//game.addVisual(self)
+		game.addVisual(self)
 	}
 	
 }

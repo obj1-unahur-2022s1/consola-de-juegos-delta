@@ -12,11 +12,25 @@ object posicion{
 	}
 }
 
+class Texto {
+	var property texto 
+	var property position
+	
+	method text() = texto	
+}
+
+class Fondo {
+	const property position = game.at(0, 0)
+	var property image = "fondo2.png"
+	
+}
+
 object puntos {
 	
 	var listaPuntos = [0]
 	
 	var property puntaje = 0
+	
 	method text() = puntaje.toString()
 	
 	method position() = game.at(1 , game.height()-1)
@@ -39,6 +53,7 @@ object puntos {
 	}
 }
 
+
 object reloj {
 	
 	var tiempo = 0
@@ -51,24 +66,12 @@ object reloj {
 	}
 	method iniciar(){
 		tiempo = 0
+		game.addVisual(self)
 		game.onTick(1000,"tiempo",{self.pasarTiempo()})
 	}
 	method detener(){
 		game.removeTickEvent("tiempo")
 	}
-}
-
-class Texto {
-	var property texto 
-	var property position
-	
-	method text() = texto	
-}
-
-class Fondo {
-	const property position = game.at(0, 0)
-	var property image = "fondo2.png"
-	
 }
 
 
@@ -114,7 +117,7 @@ const tortuga4= new ObstaculoMovil(position= game.at(5,8), imagen = "tortuga2.pn
 
 const textTiempo = new Texto(texto = "TIME: ", position = game.at(game.width()-2, game.height()-1))
 const textPuntos = new Texto(texto = "SCORE: ", position = game.at(0 , game.height()-1))
-const textMaxPuntaje = new Texto(texto = "HI-SCORE: " + puntos.maxPuntaje().toString() , position = game.at(3 , game.height()-1))
+const textMaxPuntaje = new Texto(texto = "HI-SCORE: ", position = game.at(3 , game.height()-1))
 //const textMaxPuntajeActual = new Texto(texto = puntos.maxPuntaje().toString(), position = game.at(4 , game.height()-1))
 
 
