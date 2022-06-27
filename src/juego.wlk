@@ -1,6 +1,7 @@
 import wollok.game.*
 import consola.*
 import config.*
+import menu.*
 
 class Juego {
 	var property position = null
@@ -25,8 +26,10 @@ object juegoFrogger {
 	var property position
 	
 	method iniciar(){
-       game.schedule(2000,{pantallaInicio.iniciar() })	
+       game.schedule(2000,{menu.iniciar() })	
 	}
-
+	method terminar(){
+		
+	}
 	method image() = "logoFrogger1.png"
 }

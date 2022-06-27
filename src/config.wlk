@@ -30,14 +30,14 @@ object configuracion{
 	const musica = game.sound("frogger.mp3")
 	
 	method iniciar(){
-		
-		game.clear() //Se hace un game clear primero para que el usuario no pueda presionar Z o X
-		
+		 //Se hace un game clear primero para que el usuario no pueda presionar Z o X
+		puntos.restablecer()
+		//puntos.maxPuntaje()
+		self.configurarControles()
 		nivel.agregarVisuales()
 		nivel.iniciar()
-		self.configurarMusica()
+		//self.configurarMusica()
 		self.configurarColision()
-		self.configurarControles()
 		
 	} 
 	

@@ -5,10 +5,11 @@ import config.*
 object consola {
 
 	const juegos = [
-		juegoFrogger,
+		new Juego(color = "Amarillo"),
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
-		new Juego(color = "Azul"),
+		juegoFrogger,
+		//new Juego(color = "Azul"),
 		new Juego(color = "Naranja"),
 		new Juego(color = "Violeta")
 	]
