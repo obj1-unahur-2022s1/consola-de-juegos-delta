@@ -27,6 +27,7 @@ object pantallaInicio {
 }
 */
 
+
 object configuracion{
 	const musica = game.sound("frogger.mp3")
 	
@@ -39,7 +40,9 @@ object configuracion{
 		self.configurarControles()
 		nivel.agregarVisuales()
 		nivel.iniciar()
-		//self.configurarMusica()
+		
+		self.configurarMusica()
+		
 		self.configurarColision()
 		
 	} 
@@ -53,8 +56,10 @@ object configuracion{
 			musica.volume(0.1)
 			musica.resume()
 		}else {
-			musica.play()
+			game.schedule(500, {musica.play()})
 		}
+		
+		
 		
 		keyboard.p().onPressDo({musica.pause()})
 		keyboard.o().onPressDo({musica.resume()})

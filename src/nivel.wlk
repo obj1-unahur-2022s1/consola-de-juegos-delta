@@ -67,8 +67,12 @@ object nivel {
 		//puntos.restablecer()
 		game.schedule(1500, {
 			game.clear()
+			
+			
 			//configuracion.detenerMusica()
-			//configuracion.pausarMusicaBajandoVolumen()
+			configuracion.pausarMusicaBajandoVolumen()
+			
+			
 			game.addVisual(new Fondo(image = "gameover.png"))  //Fondo Game Over
 			game.schedule(4000, { // Volver al inicio 
 				//configuracion.detenerMusicaBajandoVolumen()
