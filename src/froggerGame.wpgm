@@ -8,21 +8,7 @@ program frogger {
 	game.width(20)
 	game.height(15)
 	
-	
 	menu.iniciar()
-	//juego.configurar()
-	//juego.iniciar()
-	
-	/* 
-	var musica = game.sound("remember-the-80s.mp3")
-	musica.shouldLoop(true)
-	musica.volume(0.1)
-	game.schedule(500, {musica.play()})
-	
-	keyboard.p().onPressDo({musica.pause()})
-	keyboard.o().onPressDo({musica.resume()})
-	*/
-	
 	game.start()
 	
 

@@ -17,7 +17,6 @@ object rana {
 		self.image(dir)
 		self.avanzar()
 		self.puntajePorPasoSiDireccion_EsArriba(dir)
-		//puntos.puntajePorPaso()
 		self.sonidoPorPaso()
 	}
 	method puntajePorPasoSiDireccion_EsArriba(unaDireccion){
@@ -52,7 +51,6 @@ object rana {
 	
 	method iniciar() {
 		vivo = true
-		//position = game.at(game.width()/2,0)
 		game.addVisual(self)
 	}
 	method estaVivo() {

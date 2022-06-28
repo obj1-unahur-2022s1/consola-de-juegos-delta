@@ -4,9 +4,7 @@ import config.*
 import utilidades.* 
 
 object menu {
-
     var property seleccionado = 0
-    //var posicionInicial
     
     const opciones = [play, salir]
 
@@ -18,15 +16,12 @@ object menu {
         self.configurarControles()
         game.addVisual(fondoEmpezar)
         opciones.forEach({option => game.addVisual(option)})
-   
     }
 
     method configurarControles() {
         keyboard.up().onPressDo({ self.arriba() })
         keyboard.down().onPressDo({ self.abajo()})
         keyboard.enter().onPressDo({ self.select() })
-        //keyboard.enter().onPressDo({ if (game.hasVisual(fondoEmpezar)){self.select() }})
- 
     }
 
 	method arriba(){
@@ -66,8 +61,7 @@ object play inherits Opcion(
     ) {
 
     method iniciar(){
-        game.schedule(100,
-		{
+        game.schedule(100, {
 			game.clear()
 			configuracion.iniciar()
 		})
@@ -80,14 +74,13 @@ object salir inherits Opcion(
     imgNoSeleccionada = "salirNegro.png",
     estaSeleccionado = false,
     position = game.at(8,1)
-    ) {
+    ){
 
     method iniciar(){
-       	game.schedule(100,
-		{
+       	game.schedule(100, {
 			game.clear()
 			consola.iniciar()
-		})
+			})
     }
     
     

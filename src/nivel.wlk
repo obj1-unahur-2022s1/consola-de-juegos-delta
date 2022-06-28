@@ -12,16 +12,12 @@ object nivel {
 		tronco1,tronco2,tronco3,tronco4,
 		tortuga1,tortuga2,tortuga3,tortuga4
 	]
-	const metas = [
-		meta1, meta2,meta3,meta4,meta5
-	]
+	const metas = [meta1, meta2,meta3,meta4,meta5]
 	
-	var fondojuego = new Fondo()
+	var fondoJuego = new Fondo()
 	
 	method agregarVisuales(){
-	 	game.addVisual(fondojuego)	
-		game.addVisual(textMaxPuntaje)
-		game.addVisual(textPuntos)
+	 	game.addVisual(fondoJuego)	
 		game.addVisual(textTiempo)
 	}
 	
@@ -61,14 +57,11 @@ object nivel {
 		
 	}
 	method mostrarPantallaGameOverYVolverAMenu(){
-		game.schedule(1500, {
+		game.schedule(1000, {
 			game.clear()
-			//configuracion.detenerMusica()
 			configuracion.pausarMusicaBajandoVolumen()
-			
 			game.addVisual(new Fondo(image = "gameover.png"))  //Fondo Game Over
-			game.schedule(4000, { // Volver al inicio 
-				//configuracion.detenerMusicaBajandoVolumen()
+			game.schedule(4000, { // Volver al menu...
 				game.clear()
 				menu.iniciar()})
 			})

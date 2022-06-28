@@ -22,7 +22,6 @@ class Obstaculo {
 	
 }
 
-
 class Meta inherits Obstaculo {
 		
 	method position(nuevaPosicion){
@@ -37,7 +36,6 @@ class Meta inherits Obstaculo {
 	}
 	
 }
-
 
 class ObstaculoMovil inherits Obstaculo {
 	var velocidad

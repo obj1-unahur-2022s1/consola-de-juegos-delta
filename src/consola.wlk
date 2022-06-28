@@ -9,7 +9,6 @@ object consola {
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
 		juegoFrogger,
-		//new Juego(color = "Azul"),
 		new Juego(color = "Naranja"),
 		new Juego(color = "Violeta")
 	]

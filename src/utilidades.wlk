@@ -27,11 +27,9 @@ class Fondo {
 
 object puntos {
 	
-	//var listaPuntos = [0]
-	
 	var property puntaje = 0
 	
-	method text() = puntaje.toString()
+	method text() = "SCORE: " + puntaje.toString()
 	
 	method position() = game.at(2 , game.height()-1)
 	
@@ -53,10 +51,8 @@ object puntos {
 object puntosMax{
 	
 	var listaPuntos = [0]
-		
-	var property puntaje = 0
-	
-	method text() = self.maxPuntaje().toString()
+
+	method text() = "HI-SCORE: "+ self.maxPuntaje().toString()
 	
 	method position() = game.at(5, game.height()-1)
 	
@@ -73,7 +69,6 @@ object puntosMax{
 
 
 object reloj {
-	
 	var tiempo = 0
 	
 	method text() = tiempo.toString()
@@ -119,7 +114,6 @@ const camion3= new ObstaculoMovil(position= game.at(5,3), imagen = "camion2.png"
 const camion4= new ObstaculoMovil(position= game.at(5,5), imagen= "camion2-derecha.png", velocidad= 200, direccion = derecha)
 
 
-
 const tronco1= new ObstaculoMovil(position= game.at(game.height()-1,9), imagen = "tronco4.png", velocidad= 340, direccion = derecha)
 const tronco2= new ObstaculoMovil(position= game.at(game.height()-1,11), imagen = "tronco3.png", velocidad= 320, direccion = izquierda)
 const tronco3= new ObstaculoMovil(position= game.at(4,11), imagen = "tronco3.png", velocidad= 320, direccion = izquierda)
@@ -134,9 +128,8 @@ const tortuga4= new ObstaculoMovil(position= game.at(5,8), imagen = "tortuga2.pn
 //Texto
 
 const textTiempo = new Texto(texto = "TIME: ", position = game.at(game.width()-2, game.height()-1))
-const textPuntos = new Texto(texto = "SCORE: ", position = game.at(1 , game.height()-1))
-const textMaxPuntaje = new Texto(texto = "HI-SCORE: ", position = game.at(4 , game.height()-1))
-//const textMaxPuntajeActual = new Texto(texto = puntos.maxPuntaje().toString(), position = game.at(4 , game.height()-1))
+//const textPuntos = new Texto(texto = "SCORE - ", position = game.at(1 , game.height()-1))
+//const textMaxPuntaje = new Texto(texto = "HI-SCORE - ", position = game.at(4 , game.height()-1))
 
 
 
