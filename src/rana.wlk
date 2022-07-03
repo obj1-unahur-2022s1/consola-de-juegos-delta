@@ -51,7 +51,9 @@ object rana {
 	
 	method iniciar() {
 		vivo = true
-		game.addVisual(self)
+		if (not game.hasVisual(self)){
+			game.addVisual(self)		
+		}
 	}
 	method estaVivo() {
 		return vivo

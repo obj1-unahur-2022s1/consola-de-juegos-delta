@@ -12,6 +12,7 @@ object configuracion{
 		game.clear() 
 		rana.posicionInicial()
 		puntos.restablecer()
+		nivel.restablecerVelocidadAlPerder()
 		self.configurarControles()
 		nivel.agregarVisuales()
 		nivel.iniciar()

@@ -63,7 +63,9 @@ object puntosMax{
 		listaPuntos.add(unPuntaje)
 	}
 	method iniciar(){
-		game.addVisual(self)
+		if (not game.hasVisual(self)){
+			game.addVisual(self)		
+		}
 	}
 }
 
@@ -79,7 +81,9 @@ object reloj {
 	}
 	method iniciar(){
 		tiempo = 0
-		game.addVisual(self)
+		if (not game.hasVisual(self)){
+			game.addVisual(self)		
+		}
 		game.onTick(1000,"tiempo",{self.pasarTiempo()})
 	}
 	method detener(){
@@ -108,10 +112,10 @@ const auto3= new ObstaculoMovil(position= game.at(game.width()-1,2), imagen = "a
 const auto4= new ObstaculoMovil(position= game.at(12,5), imagen= "auto4.png", velocidad= 200, direccion = derecha)
 
 
-const camion1= new ObstaculoMovil(position= game.at(game.width()-1,5), imagen= "camion2-derecha.png", velocidad= 200, direccion = derecha)
+const camion1= new ObstaculoMovil(position= game.at(0,5), imagen= "camion2-derecha.png", velocidad= 200, direccion = derecha)
 const camion2= new ObstaculoMovil(position= game.at(game.height()-1,3), imagen = "camion2.png", velocidad= 240, direccion = izquierda)
 const camion3= new ObstaculoMovil(position= game.at(5,3), imagen = "camion2.png", velocidad= 240, direccion = izquierda)
-const camion4= new ObstaculoMovil(position= game.at(5,5), imagen= "camion2-derecha.png", velocidad= 200, direccion = derecha)
+const camion4= new ObstaculoMovil(position= game.at(6,5), imagen= "camion2-derecha.png", velocidad= 200, direccion = derecha)
 
 
 const tronco1= new ObstaculoMovil(position= game.at(game.height()-1,9), imagen = "tronco4.png", velocidad= 340, direccion = derecha)

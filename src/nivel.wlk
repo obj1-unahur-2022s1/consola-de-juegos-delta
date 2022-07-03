@@ -6,13 +6,13 @@ import menu.*
 import consola.*
 
 object nivel {
-	const obstaculosMoviles = [
+	const property obstaculosMoviles = [
 		auto1,auto2,auto3,auto4,
-		camion1,camion2,camion3,camion4,
+		camion1,camion4,camion3,camion2,
 		tronco1,tronco2,tronco3,tronco4,
 		tortuga1,tortuga2,tortuga3,tortuga4
 	]
-	const metas = [meta1, meta2,meta3,meta4,meta5]
+	const property metas = [meta1, meta2,meta3,meta4,meta5]
 	
 	var fondoJuego = new Fondo()
 	
@@ -67,5 +67,27 @@ object nivel {
 			})
 		
 	}
+	
+		method cambiarVelocidadAlLlegarMeta(){
+				
+				obstaculosMoviles.forEach({ 
+				o => o.detener() 
+					 o.aumentarVelocidad()
+					 o.iniciar()
+				})	
+			
+		}
+		
+		method restablecerVelocidadAlPerder(){
+			/*
+			game.schedule(100,{
+				self.obstaculosMoviles().forEach({
+						o => o.restablecerVelocidad()
+					})
+			})	
+			*/
+			obstaculosMoviles.forEach({ o => o.restablecerVelocidad() })
+			
+		}
 	
 }
